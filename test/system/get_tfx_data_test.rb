@@ -34,6 +34,25 @@ class GetTfxDataTest < ApplicationSystemTestCase
     sleep 4
     visit '/?page=downloads'
     sleep 4
+
+    years_a    = [2010] #,2011,2012,2013,2014,2015,2016,2017,2018]
+    months_s_a = ['JANUARY'] #,'FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER']
+    pairs_a    = ['AUDUSD'] #,'EURUSD','GBPUSD','USDCAD','USDJPY']
+    for yr_i       in years_a    do
+      for month_s  in months_s_a do
+        for pair_s in pairs_a    do
+          click_link('Downloads')
+          sleep 2
+          click_link(String(yr_i))
+          sleep 2
+          click_link(month_s.capitalize)
+          sleep 2
+          click_link(pair_s)
+          sleep 4
+        end
+      end
+    end
+    
     assert true
     
   end
